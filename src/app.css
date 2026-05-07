@@ -77,3 +77,79 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 1rem;
+  justify-content: center;
+}
+
+.temp-table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  font-size: 0.9rem;
+}
+
+.temp-table th,
+.temp-table td {
+  border: 1px solid black;
+  padding: 6px 20px; // height x width
+  text-align: center;
+}
+
+.temp-table thead th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 1.75rem;
+  border-radius: 8px;
+  text-align: left;
+  max-width: 650px;
+  width: 90%;
+}
+
+
+.modal button {
+  margin-top: 1rem;
+  float: right;
+}
+
+.popup-warning {
+  color: black;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.popup-title {
+  color: #bf0a37;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.popup-warning ol {
+  margin-left: 1.2rem;
+}
+
+.popup-warning li {
+  margin-bottom: 0.5rem;
+}
