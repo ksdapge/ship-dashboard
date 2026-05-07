@@ -127,15 +127,15 @@
   }
 
   const okImages = [
-    '/images/np1.jpg',
-    '/images/np2.jpg',
-    '/images/np3.jpg'
+    'images/np1.jpg',
+    'images/np2.jpg',
+    'images/np3.jpg'
   ];
 
   const cautionImages = [
-    '/images/caution.jpg',
-    '/images/caution1.jpg',
-    '/images/caution2.jpg'
+    'images/caution.jpg',
+    'images/caution1.jpg',
+    'images/caution2.jpg'
   ];
 
   function pickRandom(arr) {
@@ -170,7 +170,7 @@
     const maxAirGap = getMaxAirGapForTemp(tFah);
     if (maxAirGap !== null && hFeet > maxAirGap) {
       tempWarning = 'SHIP CANNOT PASS, IT IS TOO TALL!!!';
-      imgType = '/images/stop.jpg';
+      imgType = 'images/stop.jpg';
       load = 'CAUTION!';
       showPopup = false;
       return;
@@ -178,7 +178,7 @@
 
     if (hFeet > 133.105) {
       tempWarning = 'SHIP CANNOT PASS, IT IS TOO TALL!!!';
-      imgType = '/images/stop.jpg';
+      imgType = 'images/stop.jpg';
       load = 'CAUTION!';
       showPopup = false;
       return;
@@ -256,25 +256,6 @@
     <option value="C">Celsius</option>
     </select>
   </div>
-</div>
-
-</div>
-
-<div>
-  <a 
-    href="https://edpi.cloud.pge.com/edpi/trend?did={ECF9A66B-568D-4B4A-82B5-3C447A75F852}" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    style="color:#0089c4; text-decoration: underline; font-weight: bold;"
-  >
-    EDPI Link
-  </a>
-</div>
-
-<div style="margin-top: 1rem;">
-  <button on:click={calculateLoad}>
-    Calculate Load
-  </button>
 </div>
 
 <div style="margin-top: 1rem;">
