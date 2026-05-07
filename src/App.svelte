@@ -258,17 +258,6 @@
   </div>
 </div>
 
-<div>
-  <a 
-    href="https://edpi.cloud.pge.com/edpi/trend?did={ECF9A66B-568D-4B4A-82B5-3C447A75F852}" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    style="color:#0089c4; text-decoration: underline; font-weight: bold;"
-  >
-    EDPI Link
-  </a>
-</div>
-
 <div style="margin-top: 1rem;">
   <button on:click={calculateLoad}>
     Calculate Load
@@ -361,6 +350,18 @@
 
 
 <br>
+
+<div>
+  <a 
+    href="https://edpi.cloud.pge.com/edpi/trend?did={ECF9A66B-568D-4B4A-82B5-3C447A75F852}" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style="color:#0089c4; text-decoration: underline; font-weight: bold;"
+  >
+    EDPI Link
+  </a>
+</div>
+
 <h2>Ship Load Lookup Table</h2>
 
 <h3 style="color:#a30505; font-size:1rem;">
