@@ -482,11 +482,12 @@
   }
 
   div {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   input, select, button {
-    margin-left: 0.5rem;
+    /* margin-left: 0.5rem; */
+    width: 150px;
     color: black;
     background-color: lightgray;
   }
@@ -497,11 +498,13 @@
   }
 
   .height-inputs {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+        display: flex;
+    justify-content: center;   /* centers the whole group */
+    align-items: center;
+    gap: 3rem;                 /* spacing between Feet and Meters */
     margin-top: 0.5rem;
   }
+
 
   .input-group {
     display: flex;
@@ -509,9 +512,69 @@
     gap: 0.5rem;
   }
 
+
   .input-group label {
     min-width: 50px;
     text-align: right;
     font-weight: bold;
   }
+
+  @media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  input, select {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+
+  .height-inputs {
+    flex-direction: column;   /* stack instead of side-by-side */
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-group label {
+    text-align: left;
+  }
+
+  button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .image-container img {
+    max-width: 100%;
+  }
+
+  .table-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
 </style>
