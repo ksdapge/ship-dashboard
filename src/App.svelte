@@ -470,6 +470,16 @@
 
 </div>
 
+<div>
+  <a 
+    href="https://pge.sharepoint.com/:w:/r/sites/DistributionOperationsEngineering/Shared%20Documents/Training/Job%20Aids/Ship%20Crossing%20Job%20Aid.docx?d=wf919e154ead449e3bb60423c73ff94be&csf=1&web=1&e=09EbF7" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style="color:#0089c4; text-decoration: underline; font-weight: bold;"
+  >
+    Ship Crossing Job Aid
+  </a>
+</div>
 
 </main>
 
