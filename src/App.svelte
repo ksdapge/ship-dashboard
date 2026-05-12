@@ -170,8 +170,14 @@
     const result = getLoad(tFah, hFeet);
     load = `${result} A`;
 
-    // 🚫 Hard stop: exceeds allowable air gap
-    if (maxAirGap !== null && hFeet > maxAirGap) {
+    // ✅ PRIORITY: result === 0 condition FIRST
+    if (result === 0 && hFeet <= 133.102) {
+      tempWarning = 'MUST DROP ALL LOAD FOR SHIP TO PASS';
+      imgType = pickRandom(cautionImages);
+    }
+
+    // 🚫 Only block if NOT already handled by result === 0
+    else if (maxAirGap !== null && hFeet > maxAirGap) {
       tempWarning = 'SHIP CANNOT PASS, IT IS TOO TALL!!!';
       imgType = 'images/stop.jpg';
       load = 'CAUTION!';
@@ -179,7 +185,7 @@
       return;
     }
 
-    // 🚫 Too tall (no gap now — unified threshold)
+    // 🚫 Absolute height limit
     else if (hFeet > 133.102) {
       tempWarning = 'SHIP CANNOT PASS, IT IS TOO TALL!!!';
       imgType = 'images/stop.jpg';
@@ -188,19 +194,13 @@
       return;
     }
 
-    // ⚠️ Reduced load conditions
-    else if ([250, 200, 150, 50, 0].includes(result)) {
-
-      if (result === 0 && hFeet <= 133.102) {
-        tempWarning = 'MUST DROP ALL LOAD FOR SHIP TO PASS';
-      } else {
-        tempWarning = '';
-      }
-
+    // ⚠️ Reduced load levels
+    else if ([250, 200, 150, 50].includes(result)) {
+      tempWarning = '';
       imgType = pickRandom(cautionImages);
     }
 
-    // 🌡️ Temperature warnings (only if not already overridden)
+    // 🌡️ Temperature warnings
     if (tFah < 50) {
       tempWarning = 'Temperature is low...are you sure this is the correct projected temperature?';
       imgType = pickRandom(cautionImages);
@@ -210,11 +210,10 @@
       imgType = pickRandom(cautionImages);
     }
     else if (!imgType) {
-      // Default OK image if nothing else set
       imgType = pickRandom(okImages);
     }
 
-    // 📢 Popup logic
+    // 📢 Popup
     if (
       ![350, 300].includes(result) &&
       tempWarning !== 'SHIP CANNOT PASS, IT IS TOO TALL!!!' &&
