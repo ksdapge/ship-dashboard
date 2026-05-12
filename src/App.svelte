@@ -166,8 +166,11 @@
     }
 
     const tFah = convertTempToFahrenheit(t, tempUnit);
-
     const maxAirGap = getMaxAirGapForTemp(tFah);
+    const result = getLoad(tFah, hFeet);
+    load = `${result} A`;
+
+    // 🚫 Hard stop: exceeds allowable air gap
     if (maxAirGap !== null && hFeet > maxAirGap) {
       tempWarning = 'SHIP CANNOT PASS, IT IS TOO TALL!!!';
       imgType = 'images/stop.jpg';
@@ -176,7 +179,8 @@
       return;
     }
 
-    if (hFeet > 133.105) {
+    // 🚫 Too tall (no gap now — unified threshold)
+    else if (hFeet > 133.102) {
       tempWarning = 'SHIP CANNOT PASS, IT IS TOO TALL!!!';
       imgType = 'images/stop.jpg';
       load = 'CAUTION!';
@@ -184,10 +188,19 @@
       return;
     }
 
-    const result = getLoad(tFah, hFeet);
-    load = `${result} A`;
+    // ⚠️ Reduced load conditions
+    else if ([250, 200, 150, 50, 0].includes(result)) {
 
-    // Image + warning logic
+      if (result === 0 && hFeet <= 133.102) {
+        tempWarning = 'MUST DROP ALL LOAD FOR SHIP TO PASS';
+      } else {
+        tempWarning = '';
+      }
+
+      imgType = pickRandom(cautionImages);
+    }
+
+    // 🌡️ Temperature warnings (only if not already overridden)
     if (tFah < 50) {
       tempWarning = 'Temperature is low...are you sure this is the correct projected temperature?';
       imgType = pickRandom(cautionImages);
@@ -196,16 +209,12 @@
       tempWarning = 'VERY HIGH TEMPERATURE. NEED TO RE-EVALUATE BASED ON EXACT TEMPERATURE.';
       imgType = pickRandom(cautionImages);
     }
-    else if ([250, 200, 150, 50, 0].includes(result)) {
-      tempWarning = result === 0 ? 'MUST DROP ALL LOAD FOR SHIP TO PASS' : '';
-      imgType = pickRandom(cautionImages);
-    }
-    else {
+    else if (!imgType) {
+      // Default OK image if nothing else set
       imgType = pickRandom(okImages);
     }
-    
-    
-    
+
+    // 📢 Popup logic
     if (
       ![350, 300].includes(result) &&
       tempWarning !== 'SHIP CANNOT PASS, IT IS TOO TALL!!!' &&
@@ -214,9 +223,8 @@
       popupMessage = 'CAUTION: Max load capability is reduced.';
       showPopup = true;
     }
-
-
   }
+
 
 </script>
 
@@ -476,9 +484,14 @@
 
   main {
     font-family: arial;
-    padding: 2rem;
-    max-width: 1080px;
-    margin: auto;
+    padding: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  :global(html, body) {
+    width: 100%;
+    overflow-x: hidden;   /* prevents sideways scrolling */
   }
 
   div {
@@ -498,11 +511,11 @@
   }
 
   .height-inputs {
-        display: flex;
+    display: flex;
     justify-content: center;   /* centers the whole group */
     align-items: center;
-    gap: 3rem;                 /* spacing between Feet and Meters */
-    margin-top: 0.5rem;
+    gap: 1rem;                 /* spacing between Feet and Meters */
+    /* margin-top: 0.5rem; */
   }
 
 
