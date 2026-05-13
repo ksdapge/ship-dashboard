@@ -334,25 +334,8 @@
             develop a load transfer plan to get the desired loading.
           </li>
           <li>
-            Once the plan is developed, send email with your suggested plan to:
-            <br />
-            <strong>
-              CentralDCCSupervisors@pge.com,<br />
-              P1O2@pge.com,<br />
-              P2B5@pge.com,<br />
-              MXBQ@pge.com <br />
-
-              and cc PGEShipNotification@pge.com
-            </strong>
-            <br /><br />
-            and <strong>MARK HIGH IMPORTANCE</strong> with the following text:
-            <br /><br />
-            <em>
-              “We will need to perform a load transfer to allow this ship to pass
-              on [insert date]. Attached is my suggested SW plan to transfer
-              [amps] to [circuit]. I will work with LSOs to submit an AFW before
-              the ship passes.”
-            </em>
+            Once the plan is developed, send email with your suggested plan.
+            Look at attached guide on the homescreen for what to say and who to send to.
           </li>
           <li>
             Work with NB LSO to submit an AFW to execute the
@@ -360,6 +343,7 @@
           </li>
         </ol>
         
+        <p>IF SHIP CROSSING IS HAPPENING TOO SOON (NOT ENOUGH TIME TO SUBMIT AN AFW) THEN CALL YOUR SUPERVISOR TO GET DO LEADERSHIP INVOLVED IF DROPPING CUSTOMERS ARE NECESSARY TO SUPPORT THE LAST MINUTE SHIP CROSSING.</p>
         <button on:click={() => (showPopup = false)}>OK</button>
       </div>
     </div>
